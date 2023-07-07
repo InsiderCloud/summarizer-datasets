@@ -11,8 +11,6 @@ AUTHOR_USER_NAME = "InsiderCloud"
 SRC_REPO = "Cogniezer"
 AUTHOR_EMAIL = "madushakv@live.com"
 
-
-
 setuptools.setup(
     name=SRC_REPO,
     version=__version__,
