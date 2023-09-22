@@ -1,5 +1,5 @@
-from Cogniezer.constants import *
-from Cogniezer.entity import DataIngestionConfig, DataValidationConfig
+from Cogniezer.constants import CONFIG_PATH, PARAMS_PATH
+from Cogniezer.entity import DataIngestionConfig
 from Cogniezer.utils.common import read_yaml,create_directories
 
 class ConfigurationManager:
