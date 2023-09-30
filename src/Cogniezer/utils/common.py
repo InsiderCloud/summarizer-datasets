@@ -3,13 +3,13 @@ from typing import Any
 from pathlib import Path
 import yaml
 from ensure import ensure_annotations
-from box import Box, ConfigBox
+from box import ConfigBox
 from box.exceptions import BoxValueError
 from Cogniezer.logging import logger
 
 
 @ensure_annotations
-def read_yaml(path_to_yaml: Path) -> Box:
+def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """
     Reads a YAML file and returns its content as a Box object.
 
@@ -27,7 +27,7 @@ def read_yaml(path_to_yaml: Path) -> Box:
         with open(path_to_yaml, encoding="utf-8") as yaml_file:
             content = yaml.safe_load(yaml_file)
             logger.info("yaml file %s loaded successfully", path_to_yaml)
-            return Box(content)
+            return ConfigBox(content)
     except BoxValueError as exc:
         raise ValueError("yaml file is empty") from exc
     except Exception as exc:
@@ -62,5 +62,5 @@ def get_size(path:Path) -> str:
     str: A string representing the size of the file in KB.
     """
     size_in_kb = round(os.path.getsize(path)/1024)
-    return ("~ %d KB",size_in_kb)
+    return str(f"~ {size_in_kb} KB")
 
