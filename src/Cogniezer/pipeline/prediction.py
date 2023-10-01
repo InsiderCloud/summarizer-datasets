@@ -5,11 +5,11 @@ from Cogniezer.logging import logger
 
 class PredictionPipeline:
     def __init__(self):
-        self.config = ConfigurationManager()
-        self.config_manager=self.config.get_model_evaluation_config()
+        self.config_manager = ConfigurationManager()
+        self.config=self.config_manager.get_model_evaluation_config()
     
     def predict(self,text):
-        tokenizer = AutoTokenizer.from_pretrained(self.config_manager.tokenizer_path)
+        tokenizer = AutoTokenizer.from_pretrained(self.config.tokenizer_path)
         gen_kwargs = {"length_penalty":0.8,"num_beams":8,"max_length":512}
         pipe = pipeline("summarization", model=self.config.model_path, tokenizer=tokenizer)
 

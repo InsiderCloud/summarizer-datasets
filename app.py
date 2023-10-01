@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 import uvicorn
 import sys
 import os
@@ -6,8 +6,10 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 from starlette.responses import Response
 from Cogniezer.pipeline.prediction import PredictionPipeline
+from Cogniezer.pipeline.transcribe import TranscribePipeline
 
 prediction_pipeline = PredictionPipeline()
+transcribe_pipeline = TranscribePipeline()
 app = FastAPI()
 
 
@@ -23,9 +25,23 @@ async def train():
     except Exception as e:
         return Response(e)
 
-@app.post("/predict")
+@app.post("/api/predict")
 async def predict(text):
     try:
+        summary = prediction_pipeline.predict(text)
+        return summary
+    except Exception as e:
+        return Response(e)
+
+@app.post("/api/uploadfile/")
+async def upload_file(file: UploadFile):
+    file_path = os.path.join("audio-uploads", file.filename)
+
+    with open(file_path, "wb") as f:
+        f.write(file.file.read())
+    
+    try:
+        text = transcribe_pipeline.transcribe(file_path)
         summary = prediction_pipeline.predict(text)
         return summary
     except Exception as e:
