@@ -21,3 +21,11 @@ model_trainer:
   data_path: artifacts/data_transformation/samsum_dataset
   model_ckpt: google/bigbird-pegasus-large-arxiv
   model_name: google/bigbird-pegasus-large-arxiv
+
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  data_path: artifacts/data_transformation/samsum_dataset
+  model_path: artifacts/model_trainer/bigbird-samsum-model
+  tokenizer_path: artifacts/model_trainer/bigbird-samsum-tokenizer
+  metric_file_name: artifacts/model_evaluation/metrics.csv

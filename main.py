@@ -7,6 +7,7 @@ from Cogniezer.pipeline.stage_02_data_validation import DataValidationTrainingPi
 from Cogniezer.pipeline.stage_03_data_transformation import DataTransformationTrainingPipeline
 from Cogniezer.pipeline.stage_04_model_trainer import ModelTrainerPipeline
 from Cogniezer.logging import logger
+from Cogniezer.pipeline.stage_05_model_evaluaution import ModelEvaluationPipeline
 
 STAGE_NAME = "Data Ingestion State"
 
@@ -53,6 +54,19 @@ try:
     logger.info(f">>>>> Stage : {STAGE_NAME} started <<<<<")
     model_trainer_pipeline = ModelTrainerPipeline()
     model_trainer_pipeline.main()
+    logger.info(f">>>>> Stage : {STAGE_NAME} completed <<<<<")
+except Exception as error:
+    logger.error(f">>>>> Stage : {STAGE_NAME} failed <<<<<")
+    logger.error(error)
+    logger.error(f">>>>> Stage : {STAGE_NAME} failed <<<<<")
+
+
+STAGE_NAME = "Model Evaluation State"
+
+try:
+    logger.info(f">>>>> Stage : {STAGE_NAME} started <<<<<")
+    model_evaluation_pipeline = ModelEvaluationPipeline()
+    model_evaluation_pipeline.main()
     logger.info(f">>>>> Stage : {STAGE_NAME} completed <<<<<")
 except Exception as error:
     logger.error(f">>>>> Stage : {STAGE_NAME} failed <<<<<")
