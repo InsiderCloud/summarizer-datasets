@@ -1,0 +1,220 @@
+/* Custom CSS for the homepage */
+html{
+    scroll-behavior: smooth;
+}
+/* Add a subtle animation to the hero section */
+.hero {
+    animation: fadeInUp 1s ease-in-out;
+    position: relative;
+}
+
+/* Animate features on hover */
+.feature:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Add a subtle animation to the contact section */
+.contact {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Style the footer */
+.footer {
+    color: #fff;
+}
+
+/* Add a subtle animation to the footer */
+.footer {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Define custom animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1564510714747-69c3bc1fab41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); /* Replace with your hero image */
+    background-size: cover;
+    background-attachment: fixed; /* Fixed background attachment for parallax effect */
+    background-position: center center;
+    height: 100vh;
+}
+
+/* Restyle the hero content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 100px 0;
+    text-align: center;
+    color: #222222;
+}
+
+/* Restyle the hero heading */
+.hero h1 {
+    font-size: 3rem;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Restyle the hero paragraph */
+.hero p {
+    font-size: 1.25rem;
+    animation: fadeInUp 1s ease-in-out 0.5s;
+}
+
+/* Restyle the hero button */
+.hero .btn-primary {
+    font-size: 1.25rem;
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-in-out 1s;
+}
+/* Features Section */
+.features .feature {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #111;
+}
+
+.features .feature i {
+    color: #007ACC;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+}
+
+.contact h2 {
+    margin-bottom: 30px;
+}
+
+.contact form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact form .form-group input,
+.contact form .form-group textarea {
+    background: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 2px solid #007ACC;
+    border-radius: 0;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    transition: border-bottom-color 0.3s ease-in-out;
+}
+
+.contact form .form-group input:focus,
+.contact form .form-group textarea:focus {
+    border-bottom-color: #FF4500; /* Change to your desired focus color */
+}
+
+/* Footer */
+.footer {
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Add more custom styles as needed */
+/* Navbar */
+#navbar {
+    background-color: r;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#navbar.navbar-scrolled {
+    background-color: #222; /* Change the background color on scroll */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.navbar-brand {
+    color: #007ACC;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.navbar-brand:focus, .navbar-brand:hover {
+    color: #02436e !important;
+}
+
+.nav-link {
+    color: #333333 ;
+    font-size: 1rem;
+}
+
+/* Change link color when scrolled */
+#navbar.navbar-scrolled .nav-link {
+    color: #f8f9fa; /* Change link color on scroll */
+}
+
+.img-zoom{
+    width: 100%;
+    height: 100%;
+    transition: transform .4s ease;
+    margin: 0 auto;
+}
+.img-zoom:hover{
+    transform: scale(1.05);
+}
+
+.contain{
+    overflow: hidden;
+}
+.feature-card {
+    background-color: rgba(63, 63, 63, 0.11); /* Use an RGBA color with reduced opacity */
+    border-radius: 10px; /* Add rounded corners for a card effect */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    backdrop-filter: blur(5px); /* Apply a blur effect to the card */
+}
+
+#features{
+    background-image: url('http://cogniezer.centralindia.cloudapp.azure.com:8000/static/images/feature-bg.svg');
+    background-size: cover;
+}
+.custom-shape-divider-top-1696239953 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1696239953 svg {
+    position: relative;
+    display: block;
+    width: calc(199% + 1.3px);
+    height: 127px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1696239953 .shape-fill {
+    fill: #FFFFFF;
+}
+.lower-bg{
+    background-image: url('http://cogniezer.centralindia.cloudapp.azure.com:8000/static/images/wave-haikei.svg');
+    background-size: cover;
+}
+
+#testimonials{
+    background-image: url('http://cogniezer.centralindia.cloudapp.azure.com:8000/static/images/testimonial-bg.svg');
+    background-size: cover;
+    background-position: bottom center;
+}

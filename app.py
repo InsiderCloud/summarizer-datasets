@@ -1,10 +1,11 @@
-from fastapi import FastAPI, File, UploadFile
 import uvicorn
 import sys
 import os
+from fastapi import FastAPI, File, UploadFile
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse,HTMLResponse
 from starlette.responses import Response
+from fastapi.staticfiles import StaticFiles
 from Cogniezer.pipeline.prediction import PredictionPipeline
 from Cogniezer.pipeline.transcribe import TranscribePipeline
 
@@ -12,10 +13,14 @@ prediction_pipeline = PredictionPipeline()
 transcribe_pipeline = TranscribePipeline()
 app = FastAPI()
 
+templates = Jinja2Templates(directory="templates")
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/",tags=["authentication"])
 async def index():
-    return RedirectResponse(url="/docs/")
+    return HTMLResponse(content=templates.get_template("index.html").render(), status_code=200)
+    
 
 @app.get("/train")
 async def train():
